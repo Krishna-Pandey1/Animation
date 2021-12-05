@@ -35,6 +35,9 @@ var l;
 var b;
 var fl=0;
 var med;
+var hAndMed =-10;
+var har;
+
 x.style.marginTop= m+'px';
 
 function start()
@@ -45,7 +48,7 @@ function start()
 }
 
  function fly(){
-    m=m-9;
+    m=m-15;
     x = document.getElementById("hanumanJi");
     x.style.marginTop= m+'px';
     if(m <= -450){
@@ -59,7 +62,7 @@ function fly2(){
     j=document.getElementById("hanumanJi");
     j.src = "img/surelyFinalHanumanJi.png";
     j.style.marginLeft = k+'px';
-    k=k+9;
+    k=k+19;
     if(k>=850){
         clearInterval(z);
         c = setInterval(fly3,100);
@@ -77,7 +80,7 @@ function fly2(){
         // v = document.getElementById("hanumanJi");
         j.src = "img/hanumanJiFinale.png";
         j.style.marginTop= q+'px';
-        q=q+9;
+        q=q+19;
         if(q >= -100){
         clearInterval(c);
           l=   setInterval(medicine,100);
@@ -89,10 +92,20 @@ function fly2(){
     function medicine(){
         med = document.getElementById("medicine");
         med.style.marginTop=fl+'px';
-        fl = fl -5;
+        fl = fl -15;
         if(fl<=-150){
             clearInterval(l);
-            setInterval(fly)
+            har=setInterval(fly4,100);
+        }
+        
+    }
+    function fly4(){
+        med.style.marginTop = hAndMed+'px';
+        j.style.marginTop = hAndMed+'px';
+        hAndMed = hAndMed -15;
+        if(hAndMed<=-450){
+            clearInterval(har);
+
         }
         
     }
