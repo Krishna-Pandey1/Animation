@@ -42,10 +42,12 @@ var secondLast = 0;
 var secondLastMed=0;
 x.style.marginTop= m+'px';
 var bgChanged;
+var lastAnimation;
+var lastDown;
 
 function start()
 {    
-    y = setInterval(fly,100);
+    y = setInterval(fly,10);
     // const audio  = new Audio();
     // audio.src= "MMD-Jai Hanuman Gyan Gun.mp3";
 }
@@ -59,6 +61,7 @@ function start()
     // x.src="img/surelyFinalHanumanJi.png";
     z=setInterval(fly2,40);
     q=m;
+    lastDown = m;
     }
 }
 function fly2(){
@@ -68,7 +71,7 @@ function fly2(){
     k=k+10;
     if(k>=850){
         clearInterval(z);
-        c = setInterval(fly3,100);
+        c = setInterval(fly3,10);
     secondLast = k;
     // secondLastMed = k;
     }
@@ -89,7 +92,8 @@ function fly2(){
         q=q+19;
         if(q >= -100){
         clearInterval(c);
-          l=   setInterval(medicine,100);
+          l=   setInterval(medicine,10);
+          
     }
     }
     function medicine(){
@@ -110,7 +114,7 @@ function fly2(){
         hAndMed = hAndMed -15;
         if(hAndMed<=-450){
             clearInterval(har);
-            back = setInterval(backWithMed,100);
+            back = setInterval(backWithMed,10);
         }
     }
     function backWithMed(){
@@ -124,8 +128,28 @@ function fly2(){
         }
         if(secondLastMed <= -850){
             clearInterval(back);
+            lastAnimation = setInterval(relief,10);
         }
     }
+
+    function relief(){
+        // j.src = "img/doneHanumanJI.png";
+        // med.sytyle.visibility = "hidden";
+        // j.style.marginTop = lastDown+'px';
+        // lastDown = lastDown - 10;
+        // if(lastDown <= 0){
+        //     clearInterval(lastAnimation);
+        //  }
+        med.remove();
+        j.src = "img/doneHanumanJI.png";
+        j.style.marginTop=lastDown+'px';
+        lastDown = lastDown + 5 ;
+         if(lastDown >= 0){
+        clearInterval(lastAnimation);
+        //   l=   setInterval(medicine,100);
+          
+    }
+    } 
 // function fly2(){
 //         z = z+5;
 //      j =document.getElementById("hanumanJi");
