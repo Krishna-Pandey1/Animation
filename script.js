@@ -31,7 +31,10 @@ var k=0;
 var q;
 var j;
 var v;
+var l;
 var b;
+var fl=0;
+var med;
 x.style.marginTop= m+'px';
 
 function start()
@@ -57,7 +60,7 @@ function fly2(){
     j.src = "img/surelyFinalHanumanJi.png";
     j.style.marginLeft = k+'px';
     k=k+9;
-    if(k>=800){
+    if(k>=850){
         clearInterval(z);
         c = setInterval(fly3,100);
     
@@ -74,15 +77,25 @@ function fly2(){
         // v = document.getElementById("hanumanJi");
         j.src = "img/hanumanJiFinale.png";
         j.style.marginTop= q+'px';
-        q=q+6;
+        q=q+9;
         if(q >= -100){
         clearInterval(c);
-        
+          l=   setInterval(medicine,100);
         // x.src="img/surelyFinalHanumanJi.png";
         // z=setInterval(fly2,10);
         }
     }
 
+    function medicine(){
+        med = document.getElementById("medicine");
+        med.style.marginTop=fl+'px';
+        fl = fl -5;
+        if(fl<=-150){
+            clearInterval(l);
+            setInterval(fly)
+        }
+        
+    }
 // function fly2(){
 //         z = z+5;
 //      j =document.getElementById("hanumanJi");
