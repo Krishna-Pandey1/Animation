@@ -22,7 +22,7 @@ var lastAnimation;
 var lastDown;
 
 function start() {
-    y = setInterval(fly, 10);
+    y = setInterval(fly, 100);
 }
 function fly() {
     m = m - 15;
@@ -30,7 +30,7 @@ function fly() {
     x.style.marginTop = m + 'px';
     if (m <= -450) {
         clearInterval(y);
-        z = setInterval(fly2, 40);
+        z = setInterval(fly2, 100);
         q = m;
         lastDown = m;
     }
@@ -42,7 +42,7 @@ function fly2() {
     k = k + 10;
     if (k >= 850) {
         clearInterval(z);
-        c = setInterval(fly3, 10);
+        c = setInterval(fly3, 100);
         secondLast = k;
     }
 }
@@ -73,7 +73,7 @@ function fly4() {
     hAndMed = hAndMed - 15;
     if (hAndMed <= -450) {
         clearInterval(har);
-        back = setInterval(backWithMed, 10);
+        back = setInterval(backWithMed, 100);
     }
 }
 function backWithMed() {
