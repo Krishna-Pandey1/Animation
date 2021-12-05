@@ -99,12 +99,14 @@ function fly2(){
         if(fl<=-150){
             clearInterval(l);
             har=setInterval(fly4,100);
-            
+            bg = document.getElementById("morningBG");
+            bg.src ="img/night.jpg";
         }
      }
     function fly4(){
         med.style.marginTop = hAndMed+'px';
         j.style.marginTop = hAndMed+'px';
+        // bg.src ="img/night.jpg";
         hAndMed = hAndMed -15;
         if(hAndMed<=-450){
             clearInterval(har);
