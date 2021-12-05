@@ -35,10 +35,13 @@ var l;
 var b;
 var fl=0;
 var med;
-var hAndMed =-10;
+var hAndMed = -10;
 var har;
-
+var back;
+var secondLast = 0;
+var secondLastMed=0;
 x.style.marginTop= m+'px';
+var bgChanged;
 
 function start()
 {    
@@ -62,11 +65,12 @@ function fly2(){
     j=document.getElementById("hanumanJi");
     j.src = "img/surelyFinalHanumanJi.png";
     j.style.marginLeft = k+'px';
-    k=k+19;
+    k=k+10;
     if(k>=850){
         clearInterval(z);
         c = setInterval(fly3,100);
-    
+    secondLast = k;
+    // secondLastMed = k;
     }
 }
     function fly3(){
@@ -78,17 +82,16 @@ function fly2(){
         //     clearInterval(z);
         //     u=setInterval(medicineFly,10);
         // v = document.getElementById("hanumanJi");
+        // x.src="img/surelyFinalHanumanJi.png";
+        // z=setInterval(fly2,10);
         j.src = "img/hanumanJiFinale.png";
         j.style.marginTop= q+'px';
         q=q+19;
         if(q >= -100){
         clearInterval(c);
           l=   setInterval(medicine,100);
-        // x.src="img/surelyFinalHanumanJi.png";
-        // z=setInterval(fly2,10);
-        }
     }
-
+    }
     function medicine(){
         med = document.getElementById("medicine");
         med.style.marginTop=fl+'px';
@@ -96,18 +99,30 @@ function fly2(){
         if(fl<=-150){
             clearInterval(l);
             har=setInterval(fly4,100);
+            
         }
-        
-    }
+     }
     function fly4(){
         med.style.marginTop = hAndMed+'px';
         j.style.marginTop = hAndMed+'px';
         hAndMed = hAndMed -15;
         if(hAndMed<=-450){
             clearInterval(har);
-
+            back = setInterval(backWithMed,100);
         }
-        
+    }
+    function backWithMed(){
+        med.style.marginLeft = secondLastMed+'px';
+        j.style.marginLeft = secondLast+'px';
+        // secondLastMed = 0;
+        secondLastMed = secondLastMed - 10; 
+        secondLast = secondLast - 10;
+        if(secondLast <= 0){
+            clearInterval(back);
+        }
+        if(secondLastMed <= -850){
+            clearInterval(back);
+        }
     }
 // function fly2(){
 //         z = z+5;
